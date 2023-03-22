@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thực hành Demo form</title>
+  </head>
+  <body>
+    <header><h1>Create Account</h1></header>
+    <main>
+      <fieldset>
+        <legend>Registration information</legend>
+        <form action="" id="Registration information">
+          <label for="fistname">Fist name*:</label>
+          <input
+            type="text"
+            id="fistname"
+            name="fistname"
+            placeholder="enter your first name"
+          />
+          <label for="lastname">Last name:</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="enter your last name"
+          />
+          <br /><br />
+          <label for="email">Email*:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="enter your email"
+          />
+          <label for="phone">Phone*:</label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="enter your phone number"
+          />
+          <br /><br />
+          <label for="password">Password*:</label>
+          <input
+            type="text"
+            id="password"
+            name="password"
+            placeholder="enter your password"
+          />
+          <input
+            type="hidden"
+            id="password"
+            name="password"
+            placeholder="entoer your password"
+          />
+          <label for="cf-password">Comfirm Password*:</label>
+          <input
+            type="text"
+            name="cf-password"
+            id="cf-password"
+            placeholder="enter your password again"
+          />
+        </form>
+      </fieldset>
+
+      <fieldset>
+        <legend>Person information</legend>
+        <label for="gender">Gender:</label>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="true" />
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="false" />
+        <label for="music">Mucic</label>
+        <input type="checkbox" id="music" name="music" />
+        <label for="sport">Sports</label>
+        <input type="checkbox" id="sport" name="sport" />
+        <label for="travel">Travlel</label>
+        <input type="checkbox" id="travel" name="travel" />
+        <label for="movie">Movies</label>
+        <input type="checkbox" id="movie" name=" movie" />
+        <br /><br />
+        <label for="Sr-income">Source of Income:</label>
+        <select name="Sr-income" id="Sr-income">
+          <option value="Employed">Employed</option>
+          <option value="Unemployed">Unemployed</option>
+          <option value="student">Student</option>
+        </select>
+        <label for="income">Income</label>
+        <input type="range" name="income" id="income" />
+        <br /><br />
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" />
+        <label for="Pr-picture">Profile Picture</label>
+        <input
+          type="file"
+          id="Pr-picture"
+          name="Pr-picture"
+          value="Choose File"
+        />
+        <br /><br />
+        <label for="bday">Birthday:</label>
+        <input type="date" id="bday" name="bday" />
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" />
+        <br /><br />
+        <label for="Bio">Bio:</label>
+        <textarea name="Bio" id="Bio" cols="30" rows="10"></textarea>
+      </fieldset>
+      <br />
+      <form action="">
+        <input type="submit" value="Create" />
+        <input type="reset" value="Reset" />
+      </form>
+    </main>
+  </body>
+</html>

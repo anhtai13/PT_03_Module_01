@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tạo form đơn giản</title>
+  </head>
+  <body>
+    <header><h1>[Bài tập] 1. Tạo form đơn giản</h1></header>
+    <main>
+      <form
+        action=""
+        style="
+          background-color: #d5feff;
+          width: 500px;
+          margin: 0 auto;
+          padding: 20px;
+        "
+      >
+        <table bgcolor="white" width="100%">
+          <thead>
+            <tr>
+              <th colspan="4" bgcolor="#FF4C00">Sở thích của bạn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right">
+                <label for="yourname">Họ và tên</label>
+              </td>
+              <td colspan="3">
+                <input type="text" id="yourname" name="yourname" />
+              </td>
+            </tr>
+            <tr>
+              <td align="right"><label for="email">Email</label></td>
+              <td colspan="3">
+                <input type="text" id="email" name="email" />
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                <label for="hobby" rowspan="3">Sở thích</label>
+              </td>
+              <td>
+                <input type="checkbox" id="sport" name="sport" />
+                <label for="sport">Thể thao</label>
+              </td>
+              <td>
+                <input type="checkbox" id="music" name="music" />
+                <label for="music">Âm nhạc</label>
+              </td>
+              <td>
+                <input type="checkbox" id="readbook" name="reabook" />
+                <label for="reabook">Đọc sách</label>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="checkbox" id="S-web" name="S-web" />
+                <label for="S-web">Lướt web</label>
+              </td>
+              <td>
+                <input type="checkbox" id="game" name="game" />
+                <label for="game">Chơi game</label>
+              </td>
+              <td>
+                <input type="checkbox" id="film" name="film" />
+                <label for="film">Điện ảnh</label>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="checkbox" id="travel" name="travel" />
+                <label for="travel">Du lịch</label>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="3">
+                <input type="submit" value="Gửi thông tin" />
+                <input type="reset" value="Nhập lại" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+
+      <br /><br />
+      <form
+        action=""
+        style="
+          background-color: #fffda9;
+          width: 500px;
+          margin: 0 auto;
+          padding: 20px;
+        "
+      >
+        <table>
+          <thead>
+            <th align="left" width="500px" colspan="2" bgcolor="#D4FDD6">
+              ĐĂNG KÝ HỌC VIÊN
+            </th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><label for="fullname"> Họ và tên</label></td>
+              <td>
+                <input type="text" id="fullname" name="fullname" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Birthday">Ngày sinh</label></td>
+              <td><input type="date" id="Birthday" name="Birthday" /></td>
+            </tr>
+            <tr>
+              <td><label for="gender">Giới tính</label></td>
+              <td>
+                <input type="radio" id="male" name="gender" value="true" />
+                <label for="male">Nam</label>
+                <input type="radio" id="female" name="gender" />
+                <label for="female">Nữ</label>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="address">Địa chỉ</label></td>
+              <td>
+                <textarea
+                  name="address"
+                  id="address"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="class">Lớp</label></td>
+              <td>
+                <select name="class" id="class">
+                  <option value="">-Chọn lớp-</option>
+                  <option value="">Full Time</option>
+                  <option value="">Past Time</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="email">Email</label></td>
+              <td>
+                <input type="text" id="email" name="email" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="phone">Điện thoại</label></td>
+              <td>
+                <input type="tel" id="phone" name="phone" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" value="Đăng ký" />
+                <input type="reset" value="Nhập lại" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </main>
+  </body>
+</html>
