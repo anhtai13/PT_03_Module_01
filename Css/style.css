@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.top-nav {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+.logo img {
+  width: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+#login {
+  border: none;
+  background: none;
+}
+#signup {
+  background: none;
+  border-radius: 5px;
+}
+body {
+  background-image: url(../img/Decore.png);
+  background-size: contain;
+  background-position: top right;
+  background-repeat: no-repeat;
+  height: 2000px;
+  padding: 10px 50px;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero {
+  position: relative;
+  top: 200px;
+}
+.heo-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.hero-img {
+  position: absolute;
+  width: 50%;
+  top: 50px;
+  right: 0;
+}
+.hero-sb-tl {
+  text-transform: uppercase;
+  color: #df6951;
+  font-weight: 700;
+}
+.hero-tl {
+  font-size: 84px;
+  font-family: "Volkhov", serif;
+  width: 600px;
+}
+.hero-btn > button:first-child {
+  background-color: orange;
+  padding: 15px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+}
+.hero-btn > button:last-child {
+  top: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+}
+.fa-circle-play {
+  color: #df6951;
+}
+#banner {
+  text-align: center;
+  margin: 1%;
+}
+img {
+  width: 100%;
+}
+#album {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px 10px;
+}
+#banner-2 {
+  text-align: center;
+  margin: 1%;
+}
+#album-1 {
+  position: absolute;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px 10px;
+}
+@media screen and (max-width: 1363px) {
+  #album {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 995px) {
+  #album {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 729px) {
+  #album {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 601px) {
+  #album {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
