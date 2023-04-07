@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 1 - Tính điểm trung bình</title>
+  </head>
+  <body>
+    <section class="card">
+      <button onclick="calculateArea()">Tính diện tích hình tam giác</button>
+      <button onclick="calculateMark()">Nhập điểm thi</button>
+      <button onclick="Celsius_Fahrenheit()">Diện tích hình tròn</button>
+      <button onclick="C_Circle()">Chu tích hình tròn</button>
+    </section>
+
+    <script>
+      function calculateArea() {
+        const a = Number(prompt("Nhập vào cạnh a"));
+        const b = Number(prompt("Nhập vào cạnh b"));
+        const s = (a * b) / 2;
+
+        alert("Diện tích tam giác vuông là" + s);
+      }
+      // Number(x) --> Chuyển thành Number
+      // parseFloat --> lấy phần sô thực
+      // +
+      // parseInt --> Lấy phần nguyên
+
+      // Chuyển string thành Number
+
+      function calculateMark() {
+        const mathmark = Number(prompt("Nhập điểm toán"));
+        const physicsMark = Number(prompt("Nhập điểm lý"));
+        const biologyMark = Number(prompt("Nhập điểm hóa"));
+        const sum = biologyMark + mathmark + physicsMark;
+        const average = sum / 3;
+        console.log("Kiểm tra tổng", sum, "Trung bình cộng là:", average);
+      }
+      // toFixed
+
+      function Celsius_Fahrenheit() {
+        const C = Number(prompt("Nhập nhiệt độ C:"));
+        const F = (C * 9) / 5 + 32;
+        console.log(C, "=", F);
+      }
+
+      function C_Circle() {
+        const r = Number(prompt("Nhập bán kính hình tròn"));
+        const c = r * 2 * 3.14;
+        console.log("Chu vi hình tròn:", c);
+      }
+    </script>
+  </body>
+</html>
