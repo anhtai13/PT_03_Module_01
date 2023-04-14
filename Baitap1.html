@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] 1. Tính chỉ số cân nặng của cơ thể</title>
+  </head>
+  <body>
+    <section class="card">
+      <h3>[Bài tập] 1. Tính chỉ số cân nặng của cơ thể</h3>
+      <button onclick="BMI()">Chỉ số cân nặng của cơ thể</button>
+    </section>
+    <section class="card">
+      <h3>[Bài tập] 2. Tìm số ngày của tháng</h3>
+      <input type="text" placeholder="Nhập vào tháng để kiểm tra" id="month" />
+      <button onclick="handleFinDayOfMonth()">Check</button>
+      <br />
+      <p id="result"></p>
+    </section>
+    <script>
+      //Bài tập 1
+      function BMI() {
+        const wight = Number(prompt("Nhập cân nặng:"));
+        const height = Number(prompt("Nhập chiều cao: "));
+
+        const bmi = (wight / (height ^ 2)).toFixed(1);
+        console.log("Chỉ số BMI là:", bmi);
+
+        if (bmi < 18.5) {
+          alert("Cân nặng thấp (gầy)");
+        } else if (bmi < 25) {
+          alert("Cân nặng bình thường");
+        } else if (bmi === 25) {
+          alert("Thừa cân");
+        } else if (bmi < 30) {
+          alert("tiền béo phì");
+        } else if (bmi < 35) {
+          alert("Béo phì độ I");
+        } else if (bmi < 40) {
+          alert("Béo phì độ II");
+        } else {
+          console.log("Béo phì độ III");
+        }
+      }
+
+      //Bài tập 2
+      // Lấy được element
+      function handleFinDayOfMonth() {
+        const monthElement = document.getElementById("month");
+        const month = Number(monthElement.value);
+        const result = document.querySelector("#resutt");
+        console.log("Kiểm tra month", month);
+        let resultContent = "";
+
+        switch (month) {
+          case 1:
+          case 3:
+          case 5:
+          case 7:
+          case 8:
+          case 10:
+          case 12:
+            resultContent = "31";
+
+            break;
+          case 2:
+            resultContent = "28 hoặc 29";
+
+            break;
+          case 4:
+          case 6:
+          case 9:
+          case 11:
+            resultContent = "30";
+            break;
+
+          default:
+            resultContent = "Vui lòng nhập lại đúng tháng!";
+        }
+
+        result.innerHTML = "Tháng " + month + " có " + resultContent + " ngày";
+      }
+    </script>
+  </body>
+</html>

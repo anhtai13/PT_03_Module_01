@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập</title>
+  </head>
+  <body>
+    <section>
+      <h3>Bài 1: Nhập vào hai số a và b, và kiểm tra a chia hết cho b</h3>
+      <button onclick="ex1()">kiểm tra a chia b</button>
+    </section>
+
+    <section>
+      <h3>Bài 2: Đủ tuổi vào lớp 10 không</h3>
+      <button onclick="ex2()">kiểm tra a chia b</button>
+    </section>
+
+    <section>
+      <h3>Bài 2: Đủ tuổi vào lớp 10 không</h3>
+      <button onclick="ex3()">kiểm tra a chia b</button>
+    </section>
+
+    <section>
+      <h3>Bài 3: Kiểm tra số nguyên lớn hơn 0</h3>
+      <button onclick="ex3()">Kiểm tra số nguyên lớn hơn 0</button>
+    </section>
+
+    <section>
+      <h3>Bài 4: Nhập 3 số nguyên tìm số lớn nhất</h3>
+      <button onclick="ex4()">Tìm số lớn nhất trong 3 số</button>
+    </section>
+
+    <section>
+      <h3>Bài 4.1: Nhập 3 số nguyên tìm số lớn nhất</h3>
+      <button onclick="ex4a()">Tìm số lớn nhất trong 3 số</button>
+    </section>
+    <script>
+      //Bài 1
+      function ex1() {
+        const a = Number(prompt("Nhập vào số a:"));
+        const b = Number(prompt("Nhập vào số b:"));
+
+        if (a % b == 0) {
+          document.write(a + " chia hết cho " + b);
+        } else {
+          document.write(a + " không chia hết cho" + b);
+        }
+      }
+      //Bài 2
+      function ex2() {
+        const age = Number(prompt("Nhập vào số tuổi cần kiểm tra:"));
+
+        if (age <= 14) {
+          document.write("Bạn chưa đủ tuổi đề vào lớp 10");
+        } else {
+          document.write("Bạn đủ tuổi để thi vào lớp 10");
+        }
+      }
+      //Bài 3
+      function ex3() {
+        const n = Number(prompt("Nhập số vào số nguyên:"));
+
+        if (n > 0) {
+          document.write("Số nguyên " + n + " lớn hơn 0");
+        } else {
+          document.write("Số nguên " + n + " nhỏ hơn 0");
+        }
+      }
+      //Bài 4
+      function ex4() {
+        const a = Number(prompt("Nhập sô nguyên a: "));
+        const b = Number(prompt("Nhập sô nguyên b: "));
+        const c = Number(prompt("Nhập sô nguyên c: "));
+
+        if (a > b && a > v) {
+          document.write(a + " Số nguyên lớn nhất");
+        } else if (b > c && b > a) {
+          document.write(b + " Số nguyên lớn nhất");
+        } else {
+          document.write(c + " Số nguyên lớn nhất");
+        }
+        //Bài 4.1
+        function ex4a() {
+          const n = prompt("Nhập số nguyên: ");
+          const max = 0;
+          for (let i = 1; i <= 10; i++) {
+            
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
