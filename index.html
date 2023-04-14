@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>session 07 - Array</title>
+  </head>
+  <body>
+    <script>
+      const students = ["Tín", "Sơn", "Trung", "Việt"];
+      // Trong mảng: chiều dài mảng - array.length
+      // Phần tử thứ i trong mảng array[i]
+      console.log("Kiểm tra student", students);
+      console.log("Kiểm tra học sinh có index = 2", students[2]);
+      console.log("Kiểm tra chiều dài mảng: ", students.length);
+
+      const coodinates = [
+        [1, 2, 3],
+        [4, 6, 3],
+        [0, 4, 2],
+      ];
+      console.log("Tọa độ: ", coordinates);
+      console.log(
+        "Số có giá trị 6 nằm ở vị trí dòng 1 col 1",
+        coordinates[1][1]
+      );
+
+      //   Đối với method của array hoặc bất kỳ method nào:
+      // 1. Đọc định nghĩa, method đó có return gì hay không
+      // 2. Đọc Syntax
+      // 3. Đọc ví dụ
+
+      // Method thường sử dụng trong Array
+      /**
+       * @create:
+       *      - push()
+       *      - unshift()
+       *      - splice()
+       * @read
+       *      - map()
+       *      - forEach()
+       * @update
+       *      - splice()
+       *
+       * @delete
+       *      - splice()
+       *      - pop()
+       *      - shift()
+       * Một số phương thức quan trọng khác
+       *
+       *      - includes() trả về trulse/ false
+       *      - find()
+       *      - join()
+       *      - split()
+       *      - filter()
+       */
+
+      const car = ["BMW", "Mec", "Huyndai", "Ford"];
+      const totalcar = car.push("Toyota");
+      console.log("Kiểm tra xe", car);
+      const itemRomove = car.shift();
+      console.log("kiểm tra xe đã xóa", itemRomove, "Số xe còn lại", car);
+      const slogan = "Rikkei Academy - Để nông dân biết code";
+
+      //   slogan.push("Hello"); --> Lỗi slogan không phải array
+
+      console.log(
+        "Kiểm tra phần tử có trong strong hoặc mảng",
+        slogan.includes("code")
+      );
+
+      const isMec = car.includes("Mec");
+      console.log("Kiểm tra có Mec trong garage", isMec);
+
+      // const findHuyndai = car.find(item) => item === "Huyndai";
+      const findHuyndai = car.find(function (item, index, array) {
+        if (item === "Huyndai") {
+          return true;
+        }
+      });
+      console.log("Tìm xe Huyndai", car);
+
+      const colors = ["grey", "red", "orange", "purple", "pink", "green"];
+      for (let i = 0; i < colors.length; i++) {
+        console.log(
+          "%c Màu của tôi là đây",
+          `color: ${colors[i]}; fornt-size: 20px`
+        );
+      }
+
+      for (const color of colors) {
+        console.log(
+          "%c Màu của tôi là đây thay đổi lần 2",
+          `color: ${colors[i]}; fornt-size: 20px`
+        );
+      }
+    </script>
+  </body>
+</html>

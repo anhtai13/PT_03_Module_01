@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] 1. Sử dụng các hàm có sẵn của mảng</title>
+    <style>
+      .card {
+        border: 2px solid green;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="card">
+      <h3>Bài 2 - chèn giữa số chẵn</h3>
+      <input type="text" id="input-string" />
+      <button onclick="handleCheck()">Check</button>
+      <br />
+      <p class="result-1"></p>
+    </section>
+    <section class="card">
+      <h3>Bài 3 - Chuyễn chữ hòa thành thường, và thường thành hoa</h3>
+      <input type="text" id="input-ex-3" />
+      <button onclick="changerWords()">Check</button>
+      <br />
+      <p id="result-ex-3"></p>
+    </section>
+    <section class="card">
+      <h3>
+        Bài 4 - Nhập 1 số nguyên tố, in ra số nguyên tố nhở hơn hoặc bằng số đó
+      </h3>
+      <input type="text" id="input-ex-4" />
+      <button onclick="Prime()">Check</button>
+      <br />
+      <p id="result-ex-4"></p>
+    </section>
+    <section class="card">
+      <h3>Bài 5 - Nhập vào 1 số in ra số đó có phải là hoàng hảo không</h3>
+      <input type="text" id="input-ex-5" />
+      <button onclick="perfectNumber()">Check</button>
+      <br />
+      <p id="result-ex-5"></p>
+    </section>
+    <script>
+      // Bài 1
+      function colors() {
+        const myColor = ["Red", "Green", "White", "Black"];
+        console.log(myColor.join());
+      }
+      // Bài 2
+      function handleCheck() {
+        const valueInput = document.querySelector("#input-string").value;
+        const result1 = document.querySelector(".result-1");
+        console.log("Kiểm tra result", result);
+        let result = "";
+        for (let i = 0; i < valueInput.length; i++) {
+          if (valueInput[i] % 2 == 0 && valueInput[i + 1] == 0) {
+            result += valueInput[i] + "-";
+          } else {
+            result += valueInput[i];
+          }
+        }
+        result1.innerHTML = result;
+      }
+      // Bài 3
+      function changerWords() {
+        const str = document.querySelector("#input-ex-3").value;
+
+        let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        let result = "";
+
+        for (let i = 0; i < str.length; i++) {
+          let isUpper = false;
+          for (let k = 0; k < upper.length; k++) {
+            if (str[i] === upper[k]) {
+              result += str[i].toLowerCase();
+              isUpper = true;
+              break;
+            }
+          }
+          if (!isUpper) {
+            result += str[i].toUpperCase();
+          }
+        }
+        console.log("Kiểm tra chữ hòa và thường", result);
+        const result3 = Number(document.querySelector("#result-ex-3"));
+        result3.innerHTML = result;
+      }
+      // Bài 4
+      function Prime() {
+        //B1: lấy được giá trị trong input
+        const valueInput = document.querySelector("#input-ex-4").value;
+
+        let result = "";
+        //B2: Kiểm tra chuổi số từ 0 đến N
+        for (let m = 0; m <= valueInput; m++) {
+          //B3. Kiểm tra từng số thứ m có là số nguyên tố hay không
+          let isPrime = true;
+          // Các số bé hơn 2 không phải là số nguyên tố
+          if (m < 2) {
+            isPrime = false;
+          } else {
+            for (i = 2; i < m; i++) {
+              // <= Math.sqrt(m) --> rút ngắn vòng lặp
+              // Kiểm tra số m có có chia hết cho từng số thứ i hay không
+              if (m % i == 0) {
+                isPrime = false;
+                break;
+              }
+            }
+          }
+          // B4. Nếu là số nguyên tó, thì được thêm vào kết quả
+          if (isPrime) {
+            result += m + " ";
+          }
+        }
+        console.log("Kiểm tra: ", result);
+        // B5. Tìm element sẽ hiển thị kết quả vá gán hiển thị
+        const result4 = document.querySelector("#result-ex-4");
+        result4.innerHTML = result;
+      }
+      // Bài 5
+      function perfectNumber() {
+        const valueInput = Number(document.querySelector("#input-ex-5").value);
+
+        let result = "";
+
+        for (let i = 1; i <= valueInput; i++) {
+          let sum = 0;
+          for (let k = 0; k < i; k++) {
+            if (i % k == 0) {
+              sum += k;
+            }
+          }
+          if (sum == i) {
+            result += i + " ";
+          }
+        }
+        console.log("Kiểm tra: ", result);
+        const result5 = document.querySelector("#result-ex-5");
+        result5.innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
