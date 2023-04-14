@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini - Project - 04</title>
+    <style></style>
+  </head>
+  <body>
+    <section class="card">
+      <input type="text" id="input-ex-4" />
+      <button onclick="sumNunberSplits()">Check</button>
+      <br />
+      <p class="result-4"></p>
+    </section>
+    <script>
+      function myColor() {
+        const myColor = ["Red", "Green", "White", "Black"];
+        console.log(myColor.join());
+      }
+
+      // Bài 4
+      function sumNunberSplits() {
+        const valueInput = Number(document.querySelector("#input-ex-4").value);
+        const converstring = valueInput.splits(",");
+        let sum = 0;
+
+        for(const num of converstring){
+            sum += Number(number);
+        }
+        const result4 = document.querySelector("#result-ex-4");
+        result4.innerHTML = result;
+      }
+
+      function sumNunberSplits() {
+        const valueInput = Number(document.querySelector("#input-ex-4").value);
+        const converstring = valueInput.splits(",");
+        let sum = 0;
+
+        for(const num of converstring){
+            sum += Number(number);
+        }
+        const result4 = document.querySelector("#result-ex-4");
+        result4.innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
