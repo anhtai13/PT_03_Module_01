@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session 08 - Function</title>
+  </head>
+  <body>
+    <script>
+      function getColor(color) {
+        console.log("color: ", color);
+      }
+      getColor("red");
+      function calculateSum(x, y, z) {
+        return x + y + z;
+      }
+      const numbers = calculateSum(1, 2, 3);
+      console.log("Kiểm tra sum", numbers1);
+
+      function calculateSum2() {
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++)
+          arguments.forEach((element) => {});
+        console.log(arguments);
+      }
+
+      // IIFE
+      (function (firstName, lastName) {
+        console.log("Full name là: ", firstName + " " + lastName);
+      })("Sơn", "Lê");
+
+      // Arrow function
+      const calculateArea = (r) => 3.14 * r * r;
+      console.log(calculateArea(10));
+
+      const calculateSum3 = (x, y, ...numbers) => {
+        console.log(numbers);
+        const doubleNumber = numbers.map((number) => number * 2);
+        console.log(doubleNumber);
+      };
+      calculateSum3(1, 4, 5, 6, 7, 8, 34, 4467);
+
+      const cars = ["BMW", "KIA", "HUYNDAI", "VÌNAST", "FORD"];
+
+      const search = cars.filter((car) => car.includes("A"));
+
+      console.log(search, 1111111);
+
+      const number = [1, 5, 7, 9, 9, 10, 7];
+      const conditionFilter = (number) => {
+        return number > 5;
+      };
+      function myFliter(array, callBackFN) {
+        for (let i = 0; i < array.length; i++) {
+          if (callBackFN(array[i])) {
+            result.push(array[i]);
+          }
+        }
+        return result;
+      }
+
+      const resultFilter = myFliter(numbers, conditionFilter);
+      console.log(resultFilter);
+    </script>
+  </body>
+</html>

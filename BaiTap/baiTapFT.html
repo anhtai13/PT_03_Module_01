@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] FUNCTION</title>
+    <style>
+      .card {
+        border: 2px solid pink;
+        padding: 50px;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="card">
+      <h3>Bài 7</h3>
+      <input type="text" id="ex7" />
+      <button onclick="">Kiểm tra số chẳn lẽ, nguyên tố, hoàn hảo</button>
+    </section>
+    <script>
+      // Bài 1
+      (function (hello) {
+        console.log(hello);
+      })("Xin chao Rikkei Academy");
+      // Bài 2
+      function square(number) {
+        return (squareNum = number * number);
+      }
+      console.log(square(7));
+      // Bài 3
+      function century(year) {
+        return Math.ceil(year / 100);
+      }
+      console.log("Thế kỉ: " + century(1899));
+      // Bài 4
+      function slideString(str) {
+        return (str = "1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15");
+      }
+      console.log(slideString().slice(0, 10) + "...");
+      // Bai 5
+      function upperFirstCharacter() {
+        const str = "rIKKEI";
+        let lower = str.toLowerCase();
+        let tailCharacter = lower.slice(1);
+        let firstCharacter = lower.slice(0, 1).toUpperCase();
+        let result = firstCharacter + tailCharacter;
+        return result;
+      }
+      console.log(upperFirstCharacter());
+      // Bai 6
+      function maxNumber() {
+        const arr = [1, 2, 34, 4, 5, 67, 8, 4];
+        return arr;
+      }
+      console.log(Math.max(...maxNumber()));
+      // Bai 7
+      function isOdd(number) {
+        if (number % 2 === 0) {
+          return true;
+        }
+        return false;
+      }
+      function isPrime(number) {
+        if (number < 2) {
+          return false;
+        }
+        for (let i = 0; i <= Math.sqrt(number); i++) {
+          if (number % i === 0) {
+            return true;
+          }
+        }
+        return false;
+      }
+      function isPerfectNumber(number) {}
+      // Bai 8
+      function averageCurvy() {
+        const arr = [1, 2, 3];
+        const sum = arr.reduce((partiaSum, a) => partiaSum + a, 0);
+        const average = sum / arr.length;
+        return average;
+      }
+      console.log(averageCurvy());
+    </script>
+  </body>
+</html>
