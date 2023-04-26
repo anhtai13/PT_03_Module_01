@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khởi tạo đối tượng</title>
+  </head>
+  <body>
+    <script>
+      // Cách 1: khởi tạo đối tượng từ Object Leterals
+      let student_1 = {
+        // Khai báo các thuộc tính
+        studentId: "SV001",
+        studentName: "Nguyễn Văn A",
+        age: "20",
+        sex: true,
+        // Khai báo các hành vi - method, function
+        study: function () {
+          return "learn HTML, CSS, Javascript for frontend programing at Rikkei Academy DN";
+        },
+        love: function () {
+          console.log("I love beautiful girl");
+        },
+      };
+      console.log("student info 1: ", student_1());
+      // Cách 2: Khởi tạo đối từ constructor function
+      function Student(studentId, studentName, age, sex) {
+        // Khai báo các thuộc tính của đối tượng
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.age = age;
+        this.sex = sex;
+        // Khai báo các hành vi - method, function
+        function study() {
+          return "learn HTML, CSS, Javascript for frontend programing at Rikkei Academy DN";
+        }
+        function love() {
+          console.log("I love beautiful girl");
+        }
+      }
+      let student_2 = new Student("SV002", "Nguyễn Văn B", 22, false);
+      console.log("Student 2", student_2);
+      // Cách 3: Khởi tạo đối tượng từ object
+      let student_3 = new Object();
+      console.log("Student 3", student_3());
+      // Cách 4: Khởi tạo đối tượng từ class
+      class Student_class {
+        // Khai báo các thuộc tính
+        // Hàm tạo --> Khởi tạo đối tượng (duy nhất 1)
+        constructor(studentId, studentName, age, sex) {
+          this.studentId = studentId;
+          this.studentName = studentName;
+          this.age = age;
+          this.sex = sex;
+        }
+        // Khai báo các phương thức
+        getStudentId() {
+          return this.studentId;
+        }
+        setStudentId() {
+          return this.studentId;
+        }
+        study() {
+          return "learn HTML, CSS, Javascript for frontend programing at Rikkei Academy DN";
+        }
+        love() {
+          console.log("I love beautiful girl");
+        }
+      }
+      // Khởi tạo đối tượng từ lớp Status (constructor)
+      let student_4 = new Student_class("SV004", "Nguyễn Văn C", 20, true);
+      console.log("Student_4 info", student_4());
+    </script>
+  </body>
+</html>

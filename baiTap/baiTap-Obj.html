@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Xây dựng lớp mô tả hình chữ nhật</title>
+  </head>
+  <body>
+    <section>
+      <input
+        type="text"
+        placeholder="Nhập vào kích thước chiều rộng"
+        id="width-box"
+      />
+      <input
+        type="text"
+        placeholder="Nhập vào kích thước chiều dài"
+        id="height-box"
+      />
+      <button onclick="handleDrawing()">Vẽ hình</button>
+      <div class="info-box"></div>
+      <div class="box"></div>
+    </section>
+    <script>
+      function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+        this.getArea = function () {
+          return this.height * this.width;
+        };
+        this.getPerimeter = function () {
+          return (this.height + this.width) * 2;
+        };
+        this.setWidth = (width) => (this.width = width);
+        this.setHeight = (height) => (this.height = height);
+
+        this.drawing = (element) => {
+          element.style.width = this.width + "px";
+          element.style.height = this.height + "px";
+          element.background = "green";
+        };
+      }
+      const rec = new Rectangle();
+      const area = rec.getArea();
+      const perimeter = rec.getPerimeter();
+
+      function handleDrawing() {
+        // B2.1. Lấy value
+        const widthValue = Number(document.querySelector("#width-box").value);
+        const heightValue = Number(document.querySelector("#height-box").value);
+        // B3.1. Lấy element muốn hiển thị kết quả
+        const infoBoxElement = document.querySelector(".infor-box");
+        const boxElement = document.querySelector(".box");
+        // B3.2. Tạo hình chữ với thông tin lấy từ web
+        const rec = new Rectangle(widthValue, heightValue);
+
+        const area = rec.getArea();
+        const premeter = rec.getPerimeter();
+
+        // B3.3. Hiển thị kết quả
+        infoBoxElement.innerHTML =
+          "Diện tích hình chữ nhật là: " +
+          area +
+          ", và chu vi hình chữ nhật là: " +
+          perimeter;
+        rec.drawing(boxElement);
+      }
+    </script>
+  </body>
+</html>

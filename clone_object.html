@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let student_1 = {
+        studentId: "SV001",
+        studentName: "Nguyễn Văn A",
+        age: 20,
+      };
+      let student_2 = student_1;
+      student_1.adress = "Đà Nẵng";
+      console.log("Thông tin sinh viên 2 --->", student_2);
+      // Cách clone đối tượng
+      // Cách 1: Sử dụng cú pháp spreed của ES6
+      let student_3 = { ...student_1 };
+      student_1.phone = "0355519124";
+      console.log("Thông tin sinh viên 3--->", student_3);
+      // Cách 2: Sử dụng JSON
+      let student_4 = JSON.parse(JSON.stringify(student_1));
+      student_1.email = "tainguasdkjh@gmail.com";
+      console.log("Thông tin sinh viên 4--->", student_4);
+    </script>
+  </body>
+</html>

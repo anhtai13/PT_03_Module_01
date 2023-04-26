@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BT Object</title>
+  </head>
+  <body>
+    <section>
+      <input type="text" placeholder="Mã sách " id="bookId-box" />
+      <input type="text" placeholder="Tên sách" id="bookName-box" />
+      <input type="text" placeholder="Giá sách" id="price-box" />
+      <input type="text" placeholder="Các tác giả sách" id="author-box" />
+      <input type="text" placeholder="Trạng thái sách" id="bookStatus-box" />
+      <button onclick="handleInput()">Check</button>
+      <div class="infor-bookId"></div>
+      <div class="infor-bookName"></div>
+      <div class="infor-price"></div>
+      <div class="infor-author"></div>
+      <div class="infor-bookStatus"></div>
+    </section>
+    <script>
+      // Bài 1
+      const person = {
+        firstName: "Nguyễn Văn",
+        lastName: "Bình",
+      };
+      console.log("Full name: " + person.firstName + " " + person.lastName);
+      person.lastName = "Hòa";
+      console.log("Full name: " + person.firstName + " " + person.lastName);
+      delete person.lastName;
+      console.log(person);
+
+      // Bài 2
+      const fullObject = {
+        firstName: "Nguyễn Văn",
+        lastName: "A",
+      };
+      const emptyObject = {};
+      const checkEmpty = (objectName) => Object.keys(objectName).length === 0;
+      console.log(checkEmpty(fullObject));
+      console.log(checkEmpty(emptyObject));
+      // Bài 3
+      const salary_empty = {
+        salary_empty1: 6,
+        salary_empty2: 3,
+        salary_empty3: 4,
+        salary_empty4: 10,
+      };
+      let Sum = 0;
+      function salaryCount(salary) {
+        for (const salary1 in salary) {
+          Sum += salary[salary1];
+        }
+        return Sum;
+      }
+      console.log("Tổng lương nhân viên  : ", salaryCount(salary_empty));
+
+      // Bài 4
+      function menu(weight, height, title) {
+        this.weight = weight;
+        this.height = height;
+        this.title = title;
+
+        this.weight1 = () => this.weight * 2;
+        this.height1 = () => this.height * 2;
+      }
+      const newMenu = new menu(20, 30, "!!!!!");
+      const weight2 = newMenu.height1();
+      const height2 = newMenu.height1();
+      console.log("Nhân đôi: ", weight2 + " " + height2);
+      // Bài 5
+      class Computers {
+        constructor(num1, num2) {
+          this.num1 = num1;
+          this.num2 = num2;
+        }
+        Read() {
+          return this.num1 + " và " + this.num2;
+        }
+        Sum() {
+          return this.num1 + this.num2;
+        }
+        Mul() {
+          return this.num1 * this.num2;
+        }
+      }
+      const calculater = new Computers(20, 2);
+      console.log("Gía trị đã lưu: ", calculater.Read());
+      console.log("Tổng hai số:", calculater.Sum());
+      console.log("Tích hai số:", calculater.Mul());
+
+      // Bài 6
+      function book(bookId, bookName, price, author, bookStatus) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.price = price;
+        this.author = author;
+        this.bookStatus = bookStatus;
+
+        this.getBookId = () => this.bookId;
+        this.getBookName = () => this.bookName;
+        this.getPrice = () => this.price;
+        this.getAuthor = () => this.author;
+        this.getBookStatus = () => this.bookStatus;
+        return {
+          bookId: this.bookId,
+          bookName: this.bookName,
+          price: this.price,
+          author: this.author,
+          bookStatus: this.bookStatus,
+        };
+
+        // Xóa sách - Delete
+        this.removeBook = (bookId) => {
+          this.books.forEach((books, index) => {
+            if (book.bookId === bookId) {
+              this.books.splice(index, i);
+            }
+          });
+        };
+
+        // Sắp xếp sách - read
+        this.sortBook = () => {
+          this.book.sort((book1, book2) => book1.price - book2.price);
+        };
+
+        // Tìm kiếm sách theo tên
+        this.findBook = (bookName) => {
+          this.books.toLowerCase().includes(bookName.toLowerCase());
+          return result;
+        };
+      }
+
+      function handleInput() {
+        // Lấy value
+        const bookId = document.querySelector("#bookId-box").value;
+        const bookName = document.querySelector("#bookName-box").value;
+        const price = document.querySelector("#price-box").value;
+        const author = document.querySelector("#author-box").value;
+        const bookStatus = document.querySelector("#bookStatus-box").value;
+        // Lấy element muốn hiển thị kết quả
+        const infoBookId = document.querySelector(".infor-bookId");
+        const infoBookName = document.querySelector(".infor-bookName");
+        const infoPrice = document.querySelector(".infor-price");
+        const infoAuthor = document.querySelector(".infor-author");
+        const infoBookStatus = document.querySelector(".infor-bookStatus");
+      }
+    </script>
+  </body>
+</html>

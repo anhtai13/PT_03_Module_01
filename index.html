@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session 16 - Object</title>
+  </head>
+  <body>
+    <header><h1>Session 16 - Object</h1></header>
+
+    <script>
+      const car = {
+        brand: "BMW",
+        model: "X7",
+        color: "yellow",
+        price: 50000,
+        quantity: 20,
+        sale: () => {
+          this.quantity--;
+        },
+      };
+      car.brand = "Toyota";
+      car.sale();
+      console.log("Hẵn xe", car.brand);
+      console.log("Kiểm tra số lượng tồn kho:", car);
+
+      function Student(name, age, weight, address) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.address = address;
+
+        this.getEat = () => {
+          this.weight++;
+        };
+      }
+      // Tạo Object thông qua function
+      const person1 = new Student("Sơn", 26, 27, "ĐN");
+      console.log(person1);
+
+      person1.getEat();
+      console.log(person1);
+
+      function Car(model, price) {
+        const priceSale = price * 1.2;
+        this.getPrice = () => priceSale;
+      }
+
+      const car2 = new Car("VF8", 900);
+
+      console.log("Kiểm tra xe", car2);
+      console.log("Kiểm tra giá xe", car2.getPrice());
+
+      const student = {
+        firstName: "Tín",
+        lastName: "Trần",
+        fullName: function () {
+          return this.firstName + " " + lastName;
+        },
+      };
+      console.log("Kiểm tra tên: ", student.fullName());
+
+      // Có 2 cách lấy giá trị của key:
+      // cách 1:
+      console.log("Cách 1", student.firstName);
+      // cách 2:
+      let key = "lastName";
+      console.log("cách 2", student[key]);
+
+      const students = [
+        new Student("Sơn", 26, 27, "ĐN"),
+        new Student("Việt", 18, 75, "ĐN"),
+      ];
+
+      // Object là một kiểu dữ liệu tham chiếu
+
+    </script>
+  </body>
+</html>
