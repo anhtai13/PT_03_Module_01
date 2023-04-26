@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/oClock.css" />
+    <title>Đồng hồ</title>
+  </head>
+  <body>
+    <section class="card">
+      <div id="hoursIn">
+        <span></span>
+      </div>
+      <div id="minuterIn"></div>
+      <div id="secondsIn"></div>
+    </section>
+
+    <script>
+      function oClock() {
+        var today = new Date();
+        var hours = today.getHours();
+        var minuter = today.getMinutes();
+        var seconds = today.getSeconds();
+
+        if (hours < 10) {
+          hours = "0" + hours;
+        }
+        if (minuter < 10) {
+          minuter = "0" + minuter;
+        }
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
+        document.getElementById("hoursIn").innerHTML = hours;
+        document.getElementById("minuterIn").innerHTML = minuter;
+        document.getElementById("secondsIn").innerHTML = seconds;
+        setTimeout("oClock()", 1000);
+      }
+      console.log(oClock());
+    </script>
+  </body>
+</html>

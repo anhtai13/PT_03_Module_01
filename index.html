@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session - 15 DOM and EVENT</title>
+  </head>
+  <body>
+    <div id="test-1">Hello Rikkei Academy</div>
+    <div class="card">Item 1</div>
+    <div class="card">Item 2</div>
+    <div id="album">
+      <div class="card">Item 1</div>
+      <div class="card">Item 2</div>
+    </div>
+    <script>
+      const testElement = document.getElementById("test-1");
+      console.log("Kiểm tra test ", testElement);
+
+      const cardElement = document.getElementsByClassName("card");
+      console.log("Kiểm tra card ", cardElement);
+
+      const albumElement = document.querySelector("#album");
+
+      const cardElement2 = albumElement.querySelectorAll(".card");
+
+      console.log("album", albumElement);
+
+      console.log("album", albumElement2);
+      // Kiểm tra thuộc tính và thay đổi
+      console.log("Kiểm tra inner test", testElement.innerHTML);
+      console.log("Kiểm tra inner album", albumElement.innerHTML);
+      testElement.innerHTML = '<b style="color: red">Hello roon</b>'; 
+    </script>
+  </body>
+</html>

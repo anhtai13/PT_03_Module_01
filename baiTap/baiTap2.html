@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myTable {
+        padding: 30px;
+        margin: 15px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="rowCol" />
+    <button onclick="draw()">Vẽ bản</button>
+    <table id="myTable" border="1" cellpadding="10"></table>
+    <script>
+      function draw() {
+        const button = document.querySelector("button");
+        btn.addEventListener("click", () => {
+          const valueInput = document.querySelector("rowCol").value;
+          const arr = valueInput.split(",");
+          const maxRow = arr[0];
+          const maxCol = arr[1];
+          const resuld1 = document.querySelector("#myTable");
+
+          document.getElementById("rowCol").innerHTML = arr;
+          for (let row = 0; row < maxRow; row++) {
+            const tr = document.createElement("tr");
+            for (let col = 0; col <= maxCol; col++) {
+              const td = document.createElement("td");
+              tr.appendChild(td);
+            }
+            table.appendChild(tr);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
