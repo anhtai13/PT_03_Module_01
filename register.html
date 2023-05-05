@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="./css/register.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <form action="">
+        <h3>Đăng ký</h3>
+        <div class="group">
+          <input type="text" name="email" id="email" required />
+          <label for="">Email</label>
+        </div>
+        <div class="group">
+          <input type="password" name="password" id="psw" required />
+          <label for="">Mật khẩu</label>
+        </div>
+        <div class="group">
+          <input type="password" name="password" id="psw-repeat" required />
+          <label for="">Nhập lại mật khẩu</label>
+        </div>
+        <input
+          type="submit"
+          value="Đăng ký"
+          id="btn-register"
+          onclick="handleSubmit()"
+        />
+
+        <script>
+          function handleSubmit() {
+            const emailValue = document.querySelector("#email").value;
+            const passwordlValue = document.querySelector("#psw").value;
+            const passwordRepeatlValue =
+              document.querySelector("#pws-repeat").value;
+
+            const user = { email: emailValue, password: passwordlValue };
+
+            const checkError = validate(user);
+
+            const emailError = document.querySelector("#email-error");
+            const passwordError = document.querySelector("password-error");
+
+            if (checkError.isError) {
+              emailError.innerHTML = checkError.emailMsg;
+              passwordError.innerHTML = checkError.passwordMsg;
+              return;
+            } else {
+              emailError.innerHTML = "";
+              passwordError.innerHTML = "";
+            }
+
+            const usersLocal = JSON.parse(localStorage.getItem("users")) ?? [];
+
+            let isDulicate = false;
+            usersLocal.forEach((user) => {
+              if (user.email === emailValue) {
+                isDulicate = true;
+              }
+            });
+
+            if (!isDulicate) {
+              usersLocal.push(user);
+              localStorage.setItem("users", JSON.stringify(usersLocal));
+
+              window.location = "login.html";
+            } else {
+              alert("vui lòng đăng ký lại");
+            }
+          }
+
+          function validate(user) {
+            const error = {
+              isError: false,
+              emailMsg: "",
+              passwordMsg: "",
+            };
+            const re =
+              /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+            if (!user.email.match(re)) {
+              error.isError = true;
+              error.emailMsg = "Không đúng định dạng email. Vui lòng nhập lại";
+            }
+
+            if (user.password.length < 8) {
+              error.isError = true;
+              error.passwordMsg =
+                "Password không được dưới 8 ký tự. Vui lòng nhập lại";
+            }
+            return error;
+          }
+        </script>
+      </form>
+    </div>
+  </body>
+</html>

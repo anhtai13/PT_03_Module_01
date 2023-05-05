@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="./css/logIn.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <form action="">
+        <h3>Đăng nhập</h3>
+        <div class="group">
+          <input type="text" name="email" id="email" required />
+          <label for="">Email</label>
+        </div>
+        <div class="group">
+          <input type="password" name="password" id="psw" required />
+          <label for="">Mật khẩu</label>
+        </div>
+        <input
+          type="submit"
+          value="Đăng nhập"
+          id="btn-logIn"
+          onclick="handleSubmit()"
+        />
+      </form>
+    </div>
+    <script>
+      function handleSubmit() {
+        const emailValue = document.querySelector("#email").value;
+        const passwordValue = document.querySelector("#psw").value;
+
+        usersLocal = JSON.parse(localStorage.getItem("users")) ?? [];
+
+        usersLocal.forEach((item) => {
+          if (item.email === emailValue && item.password === passwordValue) {
+            localStorage.setItem("user", JSON.stringify({ email: emailValue }));
+            window.location = "home.html";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

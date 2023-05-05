@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <div>
+        <label for="">ID</label>
+        <input type="text" id="id" />
+      </div>
+      <div>
+        <label for="">Name Product</label>
+        <input type="text" id="namePr" />
+      </div>
+      <div>
+        <label for="">Status</label>
+        <input type="text" id="status" />
+      </div>
+      <div>
+        <button onclick="add()">Submit</button>
+      </div>
+
+      <table class="tb">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name Product</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+      </table>
+    </section>
+
+    <script>
+      let data = [];
+      function add() {
+        const item_id = document.getElementById("id").value;
+        const item_name = document.getElementById("namePr").value;
+        const item_status = document.getElementById("status").value;
+
+        const obj = {
+          id: item_id,
+          namePr: item_name,
+          status: item_status,
+        };
+        data.push(item);
+      }
+    </script>
+  </body>
+</html>
