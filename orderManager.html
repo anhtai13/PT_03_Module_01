@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/navBar.css" />
+    <link rel="stylesheet" href="./css/tableOrder.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="logo">
+            <img src="/img/logo.jpg" alt="" />
+            <span class="nav-item">Adminstrator</span>
+          </a>
+        </li>
+        <li>
+          <a href="./homeAdmin.html">
+            <i class="fas fa-home"></i>
+            <span class="nav-item">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./userManager.html">
+            <i class="fas fa-user"></i>
+            <span class="nav-item">User Managerment</span>
+          </a>
+        </li>
+        <li>
+          <a href="./productsManager.html">
+            <i class="fas fa-box"></i>
+            <span class="nav-item">Products Managerment</span>
+          </a>
+        </li>
+        <li>
+          <a href="./orderManager.html">
+            <i class="fas fa-truck-ramp-box"></i>
+            <span class="nav-item">Order Managerment</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-cog"></i>
+            <span class="nav-item">Setting</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item" onclick="handleLogout()">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="table">
+      <section class="table_header">
+        <h1>Order Manager</h1>
+        <div class="input-group">
+          <input
+            type="search"
+            id="search"
+            onkeyup="btnSearch()"
+            placeholder="Search..."
+          />
+          <img src="img/search.png" />
+        </div>
+      </section>
+      <section class="table_body">
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Product</th>
+              <th>nameProduct</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Customer</th>
+              <th>Gmail</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <div id="myModal-edit" class="modal">
+      <div class="modal-content-1">
+        <div class="close-btn"><span class="closes">X</span></div>
+        <!-- img -->
+        <div class="imgPr">
+          <input type="image" id="product-img-view" disabled />
+        </div>
+        <!-- infor -->
+        <div class="infor">
+          <label for="">ID</label>
+          <input type="text" placeholder="Product" id="product-view" disabled />
+
+          <label>Name Product</label>
+          <input
+            type="text"
+            placeholder="Name Product"
+            id="name-product-view"
+            disabled
+          />
+
+          <label>Price</label
+          ><input
+            type="text"
+            placeholder="Price"
+            id="price-product-view"
+            disabled
+          />
+
+          <label>Decription</label
+          ><input
+            type="text"
+            placeholder="decription"
+            id="decription-product-view"
+            disabled
+          />
+        </div>
+      </div>
+    </div>
+    <script src="./js/dbOrder.js"></script>
+  </body>
+</html>

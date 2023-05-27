@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Order</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Thêm JS của bootstrap
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script> -->
+    <link rel="stylesheet" href="./css/navBar.css" />
+    <link rel="stylesheet" href="./css/tableProduct.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="logo">
+            <img src="/img/logo.jpg" alt="" />
+            <span class="nav-item">Adminstrator</span>
+          </a>
+        </li>
+        <li>
+          <a href="./homeAdmin.html">
+            <i class="fas fa-home"></i>
+            <span class="nav-item">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./userManager.html">
+            <i class="fas fa-user"></i>
+            <span class="nav-item">User Managerment</span>
+          </a>
+        </li>
+        <li>
+          <a href="./productsManager.html">
+            <i class="fas fa-box"></i>
+            <span class="nav-item">Products Managerment</span>
+          </a>
+        </li>
+        <li>
+          <a href="./orderManager.html">
+            <i class="fas fa-truck-ramp-box"></i>
+            <span class="nav-item">Order Managerment</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-cog"></i>
+            <span class="nav-item">Setting</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item" onclick="handleLogout()">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Table Product Order -->
+    <main class="table">
+      <section class="table_header">
+        <h1>Products Manager</h1>
+        <div class="input-group">
+          <input
+            type="search"
+            placeholder="Search..."
+            id="search"
+            onkeyup="btnSearch()"
+          />
+          <img src="img/search.png" />
+        </div>
+      </section>
+      <button id="myBtn">ADD</button>
+      <section class="table_body">
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Products</th>
+              <th>Name Products</th>
+              <th>Price</th>
+              <th>Quatity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!-- Trigger/Open The Modal -->
+      </section>
+    </main>
+
+    <!-- The modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">X</span>
+        <div class="modal-infor">
+          <label>Product img</label>
+          <input type="text" placeholder="Product" id="product-add" />
+
+          <label>Name Product</label>
+          <input type="text" placeholder="Name Product" id="name-product-add" />
+
+          <label>Price</label>
+          <input type="text" placeholder="Price" id="price-product-add" />
+
+          <label>Quantity</label>
+          <input type="text" placeholder="Quatity" id="quantity-product-add" />
+          <button id="addPr" onclick="handleAddProduct()">ADD</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="myModal-edit" class="modal">
+      <div class="modal-content-1">
+        <span class="closes">X</span>
+        <div class="modal-infor">
+          <label>ID</label>
+          <input type="text" placeholder="Product" id="product-edit" disabled />
+
+          <label>Product img</label>
+          <input type="text" id="product-img-edit" />
+
+          <label>Name Product</label>
+          <input
+            type="text"
+            placeholder="Name Product"
+            id="name-product-edit"
+          />
+
+          <label>Price</label>
+          <input type="text" placeholder="Price" id="price-product-edit" />
+
+          <label>Quantity</label>
+          <input type="text" placeholder="Quatity" id="quantity-product-edit" />
+          <button id="updatePr" onclick="handleUpdate()">Update</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/productsList.js"></script>
+
+    <!-- <script src="./js/dbProducts.js"></script> -->
+  </body>
+
+  <script>
+    const products = JSON.parse(localStorage.getItem("products")) ?? [];
+
+    renderProduct(products);
+
+    // Get the modal
+    let modal = document.getElementById("myModal");
+
+    let modalEdit = document.getElementById("myModal-edit");
+
+    // Get the button that opens the modal(add)
+    let btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    let span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = "block";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    const closes = document.querySelector(".closes");
+    const myModaledit = document.querySelector("#myModal-edit");
+
+    closes.onclick = function () {
+      myModaledit.style.display = "none";
+    };
+    // Edit
+    function handleEdit(id) {
+      // render vào modal
+
+      const myModaledit = document.querySelector("#myModal-edit");
+
+      myModaledit.style.display = "block";
+      const getProduct = JSON.parse(localStorage.getItem("products"));
+      let product;
+      getProduct.forEach((prod) => {
+        if (prod.id == id) {
+          product = prod;
+        }
+      });
+      renderModal(product);
+    }
+    // Render modal
+    function renderModal(product) {
+      const idElement = document.querySelector("#product-edit");
+      const imgElement = document.querySelector("#product-img-edit");
+      const nameElement = document.querySelector("#name-product-edit");
+      const priceElement = document.querySelector("#price-product-edit");
+
+      const quantityElement = document.querySelector("#quantity-product-edit");
+
+      idElement.value = product?.id;
+      imgElement.value = product?.image;
+      nameElement.value = product?.nameProduct;
+      priceElement.value = product?.price;
+      quantityElement.value = product?.quantity;
+    }
+    // Xử lý Update
+    function handleUpdate() {
+      const idValue = document.querySelector("#product-edit").value;
+      const imgValue = document.querySelector("#product-img-edit").src;
+      const nameValue = document.querySelector("#name-product-edit").value;
+      const priceValue = Number(
+        document.querySelector("#price-product-edit").value
+      );
+      const quantityValue = Number(
+        document.querySelector("#quantity-product-edit").value
+      );
+
+      const newProdouct = {
+        id: idValue,
+        image: imgValue,
+        nameProduct: nameValue,
+        price: priceValue,
+        quantity: quantityValue,
+      };
+
+      // Lấy dữ liệu từ local về
+      const products = JSON.parse(localStorage.getItem("products"));
+      products.forEach((product, i) => {
+        if (product.id == idValue) {
+          products.splice(i, 1, newProdouct);
+        }
+      });
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProduct(products);
+    }
+
+    // handle Delete
+    function handleDelete(id) {
+      const isDelete = confirm("Bạn chắc chắn muốn xóa");
+
+      // Nếu người dùng muốn xóa thì sẽ kết thúc function
+      if (!isDelete) {
+        return;
+      }
+      console.log(1111, id);
+
+      const products = JSON.parse(localStorage.getItem("products"));
+      products.forEach((product, i) => {
+        if (product.id == id) {
+          products.splice(i, 1);
+        }
+      });
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProduct(products);
+    }
+
+    // handle Add
+    function handleAddProduct() {
+      const productValue = document.querySelector("#product-add").value;
+      const nameValue = document.querySelector("#name-product-add").value;
+      const priceValue = Number(
+        document.querySelector("#price-product-add").value
+      );
+      const quantityValue = Number(
+        document.querySelector("#quantity-product-add").value
+      );
+      const products = JSON.parse(localStorage.getItem("products"));
+      const newProdouct = {
+        id: Number(products[products.length - 1]?.id) + 1,
+        image: productValue,
+        nameProduct: nameValue,
+        price: priceValue,
+        quantity: quantityValue,
+      };
+
+      // Lấy dữ liệu từ local về
+
+      products.push(newProdouct);
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProduct(products);
+    }
+
+    // Render Product
+    function renderProduct(data) {
+      // B1. Xác định element sẽ thay đổi
+      const tbodyElement = document.querySelector("tbody");
+      let contentTbody = "";
+      data.forEach((product, index) => {
+        contentTbody += `
+      <tr>
+        <td>${index + 1}</td>
+        <td><img src="${product.image}"/></td>
+        <td>${product.nameProduct}</td>
+        <td>${product.price} đ</td>
+        <td>${product.quantity}</td>
+        <td><button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="handleEdit(${
+          product.id
+        })">Edit</button><button class="btn btn-danger" onclick="handleDelete(${
+          product.id
+        })">Delete</button></td>
+      </tr>
+      `;
+      });
+      tbodyElement.innerHTML = contentTbody;
+    }
+    // search
+    function btnSearch() {
+      let searchValue = document.querySelector("#search").value;
+      const products = JSON.parse(localStorage.getItem("products")) ?? [];
+      const listProduct = products.filter((product) => {
+        return Object.values(product.nameProduct)
+          .join("")
+          .toLowerCase()
+          .includes(searchValue.toLowerCase());
+      });
+      renderProduct(listProduct);
+    }
+    function handleLogout() {
+      localStorage.removeItem("adminLocal");
+      window.location = "logInAdmin.html";
+    }
+  </script>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/addCard.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="icon">Shopping Now</div>
+      <div class="search-box">
+        <input type="search" placeholder="Search here" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <ol>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">contact</a></li>
+        <li><a href="#">services</a></li>
+        <li><a href="./userManager.html">Manager</a></li>
+        <li onclick="handleLogout()"><a href="#">Logout</a></li>
+      </ol>
+    </nav>
+    <div class="container">
+      <header>
+        <h2>Your shopping cart</h2>
+        <div class="shopping">
+          <img src="img/shopping.svg" /><span class="quantity">0</span>
+        </div>
+      </header>
+      <div class="list"></div>
+    </div>
+
+    <div class="card">
+      <h2>Card</h2>
+      <ul class="listCard"></ul>
+      <div class="checkOut">
+        <div class="total">0</div>
+        <div class="closeShopping">Close</div>
+      </div>
+    </div>
+
+    <script src="./js/productsList.js"></script>
+    <script src="./js/addCard.js"></script>
+  </body>
+
+  <!-- <script>
+    const products = JSON.parse(localStorage.getItem("products")) ?? [];
+
+    let openShopping = document.querySelector(".shopping");
+    let closeShopping = document.querySelector(".closeShopping");
+    let list = document.querySelector(".list");
+    let listCard = document.querySelector(".listCard");
+    let body = document.querySelector("body");
+    let total = document.querySelector(".total");
+    let quantity = document.querySelector(".quantity");
+
+    openShopping.addEventListener("click", () => {
+      body.classList.add("active");
+    });
+    closeShopping.addEventListener("click", () => {
+      body.classList.remove("active");
+    });
+
+    let listCards = [];
+    function initAdd() {
+      products.forEach((value, key) => {
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("item");
+        newDiv.innerHTML = `
+            <td><img src="${value.image}"/></td>
+            <div class="title">${value.nameProduct}</div>
+            <div class="price">${value.price.toLocaleString()}</div>
+            <button onclick="addToCard(${key})">Add To Card</button>`;
+        list.appendChild(newDiv);
+      });
+    }
+    initAdd();
+    function addToCard(key) {
+      if (listCards[key] == null) {
+        // copy product form list to list card
+        listCards[key] = JSON.parse(JSON.stringify(products[key]));
+        listCards[key].quantity = 1;
+      }
+      reloadCard();
+    }
+    function reloadCard() {
+      listCard.innerHTML = "";
+      let count = 0;
+      let totalPrice = 0;
+      listCards.forEach((value, key) => {
+        totalPrice = totalPrice + value.price;
+        count = count + value.quantity;
+        if (value != null) {
+          let newDiv = document.createElement("li");
+          newDiv.innerHTML = `
+
+                <div><img src="${value.image}"/>         
+                <div>${value.nameProduct}</div>
+                <div>${value.price.toLocaleString()}</div>
+                <div>
+                    <button onclick="changeQuantity(${key}, ${
+            value.quantity - 1
+          })">-</button>
+                    <div class="count">${value.quantity}</div>
+                    <button onclick="changeQuantity(${key}, ${
+            value.quantity + 1
+          })">+</button>
+                </div>`;
+          listCard.appendChild(newDiv);
+        }
+      });
+      total.innerText = totalPrice.toLocaleString();
+      quantity.innerText = count;
+    }
+    function changeQuantity(key, quantity) {
+      if (quantity == 0) {
+        delete listCards[key];
+      } else {
+        listCards[key].quantity = quantity;
+        listCards[key].price = quantity * products[key].price;
+      }
+      reloadCard();
+    }
+    function handleLogout() {
+      localStorage.removeItem("adminLocal");
+      window.location = "logIn.html";
+    }
+  </script> -->
+</html>
